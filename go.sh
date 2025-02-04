@@ -5,18 +5,18 @@ if [ "$EUID" -ne 0 ]; then
 fi
 sudo apt update -y
 sudo apt-get install pkg-config libssl-dev -y
-wget -O /etc/logo.sh https://raw.githubusercontent.com/Azumi67/UDP2RAW_FEC/main/logo.sh
+wget -O /etc/logo.sh https://raw.githubusercontent.com/saeideros/UDP2RAW_FEC/main/logo.sh
 chmod +x /etc/logo.sh
 
 architecture=$(uname -m)
 if [ "$architecture" = "x86_64" ]; then
     if [ ! -f "go1.21.5.linux-amd64.tar.gz" ]; then
-        wget https://github.com/Azumi67/UDP2RAW_FEC/releases/download/go/go1.21.5.linux-amd64.tar.gz
+        wget https://github.com/saeideros/UDP2RAW_FEC/releases/download/go/go1.21.5.linux-amd64.tar.gz
         sudo tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz
     fi
 elif [ "$architecture" = "aarch64" ]; then
     if [ ! -f "go1.21.5.linux-arm64.tar.gz" ]; then
-        wget https://github.com/Azumi67/UDP2RAW_FEC/releases/download/go/go1.21.5.linux-arm64.tar.gz
+        wget https://github.com/saeideros/UDP2RAW_FEC/releases/download/go/go1.21.5.linux-arm64.tar.gz
         sudo tar -C /usr/local -xzf go1.21.5.linux-arm64.tar.gz
     fi
 else
@@ -38,6 +38,6 @@ if [ -f "tls.go" ]; then
     echo "deleted previous version!"
 fi
 
-wget https://raw.githubusercontent.com/Azumi67/Reverse_tls/main/tls.go
+wget https://raw.githubusercontent.com/saeideros/Reverse_tls/main/tls.go
 
 go run tls.go
